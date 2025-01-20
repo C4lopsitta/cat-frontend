@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cat-frontend", "cat-frontend.csproj", "{DEF2CAFE-72CF-435C-91D8-C968CE84DB6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APILibCat", "APILibCat\APILibCat.csproj", "{AB2B7D7E-5C55-4729-9C82-2AF6FA0DF479}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatAPILib", "..\CatAPILib\CatAPILib.csproj", "{5F90022A-61F2-413E-B9C2-AB2C07301099}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{DEF2CAFE-72CF-435C-91D8-C968CE84DB6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEF2CAFE-72CF-435C-91D8-C968CE84DB6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEF2CAFE-72CF-435C-91D8-C968CE84DB6E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AB2B7D7E-5C55-4729-9C82-2AF6FA0DF479}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB2B7D7E-5C55-4729-9C82-2AF6FA0DF479}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB2B7D7E-5C55-4729-9C82-2AF6FA0DF479}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB2B7D7E-5C55-4729-9C82-2AF6FA0DF479}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F90022A-61F2-413E-B9C2-AB2C07301099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F90022A-61F2-413E-B9C2-AB2C07301099}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F90022A-61F2-413E-B9C2-AB2C07301099}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F90022A-61F2-413E-B9C2-AB2C07301099}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
