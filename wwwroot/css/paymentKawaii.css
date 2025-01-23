@@ -1,0 +1,185 @@
+:root{
+    --border-radius-px: 40px;
+    --border-thickness: 4px;
+    --background: #ed9fac;
+    --accent: #f58ea3;
+    --surface: #f6e4e1;
+    --borders: #9a423d;
+    --shadows: #ec667f;
+    --shadows50: #ec667e30;
+    --overlays: #b64e5e;
+    --cream: #fff1d7;
+    --bezcurve: .4s cubic-bezier(.49,.01,.26,1.29);
+}
+
+
+*{
+    user-select: none;
+    font-family: 'Pretty Neat';
+}
+
+::-moz-selection { /* Code for Firefox */
+  background: var(--background);
+}
+
+::selection {
+  background: var(--background);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+
+}
+p{
+    margin: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+li{
+    padding-top: 1rem;
+    margin: .5rem;
+    width: fit-content;
+    text-decoration: underline wavy 2px var(--accent);
+}
+a{
+    text-decoration: none;
+    color: var(--borders);
+}
+input:focus{
+    outline: none;
+}
+#outer-grid{
+    display: grid;
+    grid-template-columns: 8fr 32fr;
+    grid-template-rows: 1fr;
+    height: 100%;
+}
+
+#main{
+    padding: 1rem;
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: repeat(32, 1fr);
+    grid-template-rows: repeat(22, 1fr);
+    height: 100vh;
+
+    background-color: var(--background);
+
+    background-image: url(PngAssets/main-bg2.png);
+    background-size: auto 100vh;
+}
+
+#payment-box{
+    grid-column: 9/ span 14;
+    grid-row: 4/ span 13;
+
+    background-color: var(--surface);
+    border-radius: var(--border-radius-px);
+    border: var(--border-thickness) solid var(--borders);
+    box-shadow: calc(-0.02*100vw) calc(0.02*100vw) var(--shadows50);
+
+}
+
+.box-title-bar{
+    margin: 0;
+    width: 100%;
+    height: 4rem;
+    background-color: var(--accent);
+    border-top-left-radius: calc(var(--border-radius-px) - 4px);
+    border-top-right-radius: calc(var(--border-radius-px) - 4px);
+    border-bottom: var(--border-thickness) solid var(--borders);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.box-title-bar > .box-title-deco{
+    margin: 0;
+    margin-right: 2vw;
+    background-color: var(--shadows50);
+    border-radius: var(--border-radius-px);
+    width: 30%;
+    height: 1rem;
+}
+.box-title-bar > .box-title-text{
+    font-family: 'Kitten Slant Regular';
+    margin-left: 1.5vw;
+    margin-top: .5rem;
+    font-size: 2.5rem;
+    color: var(--borders);
+}
+
+
+
+#box-content-wrapper{
+    height: calc(100% - 4rem - var(--border-thickness));
+    background-color: var(--cream);
+    border-bottom-left-radius: var(--border-radius-px);
+    border-bottom-right-radius: var(--border-radius-px);
+
+    overflow-y: scroll;
+    scrollbar-width:none;
+    scrollbar-color: #00000000 #00000000;
+}
+.logo{
+    padding-top: 1rem;
+    margin: 0rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom: 2px var(--borders) dashed;
+}
+#payment{
+    display: flex;
+    flex-direction: column;
+    min-height: 60%;
+    max-height: 100%;
+    justify-content: space-around;
+    margin: 2% 2rem;
+    width: calc(100%-2rem);
+
+    
+}
+.field{
+    height: 3rem;
+    border-radius: 1rem;
+    border: 1px var(--borders) dashed;
+    font-family: "Pretty Neat";
+    font-size: 1.5rem;
+    color: var(--borders);
+    padding-top: 0.5rem;
+    margin-top: 1rem;
+    text-indent: 1rem;
+}
+#payment-cvv-row{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.payment-bottom-row{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+}
+.field[name="payment-card-number"]{
+    width: 75%;
+    margin-right: 5%;
+}
+.field[name="payment-cvv"]{
+    width: 20%;
+    justify-self: end;
+}
+.btn{
+    height: 4rem;
+    border-radius: var(--border-radius-px);
+    border: 2px dotted var(--borders);
+    background-color: var(--surface);
+    padding: 0 1vw;
+    margin: 3vh 1vh;
+    font-size: 1.5rem;
+    align-self: end;
+    justify-self: end;
+}

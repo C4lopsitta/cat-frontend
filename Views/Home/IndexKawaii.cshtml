@@ -1,0 +1,90 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="~/css/IndexKawaii.css" type="text/css">
+    <link rel="stylesheet" href="~/css/fonts.css" type="text/css">
+    <link rel="stylesheet" href="~/css/sidebar.css" type="text/css">
+
+    <title>Kittens - Home</title>
+</head>
+<body>
+    <div id="outer-grid">
+        <!-- Sidebar -->
+        <div id="outer-side">
+            <div id="sidebar-top">
+                <p class="sidebar-title">(Kittens!)</p>
+            </div>
+            <div id="sidebar-mid">
+                <ul>
+                    <li><a href="indexKawaii.html">~  Home  ~</a></li>
+                    <li><a href="cartKawaii.html">~  Cart  ~</a></li>
+                    <li><a href="#">~  Wishlist  ~</a></li>
+                </ul>
+            </div>
+            <div id="sidebar-bot">
+                <p>Powered by cuteness</p>
+            </div>
+        </div>
+
+        <!-- Main Page -->
+        <div id="main">
+            <div id="big-box">
+                <div class="box-title-bar">
+                    <div class="box-title-text">List</div>
+                    <div class="box-title-deco"></div>
+                </div>
+                <div id="list">
+
+                    <div id="page-changer">
+
+                        <div id="arrows">
+                            <a href="#">
+                                <
+                            </a>
+                            <p>Switch Pages</p>
+                            <a href="#">
+                                >
+                            </a>
+                        </div>
+
+                        <div id="page-number">
+                            <p>Page number:</p>
+                            <input type="text">
+                        </div>
+                    </div>
+
+                    <a class="single-cat" href="dettaglioKawaii.html">
+                        <div>
+                            <p class="cat-name">Izutsumi</p>
+                            <p class="cat-age">Aged 17</p>
+                        </div>
+                        <div class="cat-detail-arrow">
+                            <p> > </p>
+                        </div>
+                    </a>
+                    <div class="single-cat"></div>
+                    <div class="single-cat"></div>
+                    <div class="single-cat"></div>
+                    <div class="single-cat"></div>
+                    <div class="single-cat"></div>
+                    <div class="single-cat"></div>
+                    <div class="single-cat"></div>
+                    <div class="single-cat"></div>
+                </div>
+            </div>
+            <div id="small-box">
+                <div class="box-title-bar">
+                    <div class="box-title-text">Filters</div>
+                    <div class="box-title-deco"></div>
+                </div>
+                <div id="filters">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

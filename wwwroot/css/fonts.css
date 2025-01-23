@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'Dinomiko Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Dinomiko Regular'), url('../fonts/Dinomiko Font by 7NTypes.woff') format('woff');
+}
+@font-face {
+    font-family: 'Kitten Slant Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Kitten Slant Regular'), url('../fonts/KittenSlantTrial.woff') format('woff');
+}
+@font-face {
+    font-family: 'Cute Honey';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../fonts/HoneyCute.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Pretty Neat';
+    src: url('../fonts/PrettyNeat/PrettyNeat-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Pretty Neat Bold';
+    src: url('../fonts/PrettyNeat/PrettyNeat-Bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}

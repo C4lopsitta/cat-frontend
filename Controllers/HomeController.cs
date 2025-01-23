@@ -18,6 +18,11 @@ namespace cat_frontend.Controllers
             return View();
         }
 
+        public IActionResult IndexKawaii()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
