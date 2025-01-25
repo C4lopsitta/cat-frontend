@@ -67,7 +67,7 @@ input:focus{
 
     background-color: var(--background);
 
-    background-image: url(PngAssets/main-bg2.png);
+    background-image: url(../png/main-bg2.png);
     background-size: auto 100vh;
 }
 

@@ -8,8 +8,9 @@ namespace cat_frontend.Controllers
         {
             return View();
         }
-        public IActionResult CatDetail()
+        public IActionResult CatDetail(string uid)
         {
+            ViewData["uid"] = uid;
             return View();
         }
     }

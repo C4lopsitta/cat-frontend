@@ -48,11 +48,23 @@
     <None Include="wwwroot\fonts\PrettyNeat\Readme.pdf" />
     <None Include="wwwroot\fonts\PrettyNeat\SIL Open Font License.txt" />
     <None Include="wwwroot\js\animate.js" />
+    <None Include="wwwroot\png\786.jpg" />
+    <None Include="wwwroot\png\avatar-bg1.png" />
+    <None Include="wwwroot\png\avatar-bg2.png" />
+    <None Include="wwwroot\png\cartThingyMaybe.png" />
+    <None Include="wwwroot\png\list-bg1.png" />
+    <None Include="wwwroot\png\login-img-tmp.png" />
+    <None Include="wwwroot\png\main-bg1.png" />
+    <None Include="wwwroot\png\main-bg2.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\TMP_KawaiiUI\PngAssets\" />
   </ItemGroup>
 
 </Project>

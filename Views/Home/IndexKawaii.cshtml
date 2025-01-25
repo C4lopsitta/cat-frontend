@@ -21,8 +21,8 @@
             </div>
             <div id="sidebar-mid">
                 <ul>
-                    <li><a href="indexKawaii.html">~  Home  ~</a></li>
-                    <li><a href="cartKawaii.html">~  Cart  ~</a></li>
+                    <li><a asp-route="home">~  Home  ~</a></li>
+                    <li><a asp-route="cart" >~  Cart  ~</a></li>
                     <li><a href="#">~  Wishlist  ~</a></li>
                 </ul>
             </div>
@@ -40,7 +40,7 @@
                 </div>
                 <div id="list">
 
-                    <div id="page-changer">
+                    <!--<div id="page-changer">
 
                         <div id="arrows">
                             <a href="#">
@@ -56,25 +56,22 @@
                             <p>Page number:</p>
                             <input type="text">
                         </div>
-                    </div>
-
-                    <a class="single-cat" href="dettaglioKawaii.html">
-                        <div>
-                            <p class="cat-name">Izutsumi</p>
-                            <p class="cat-age">Aged 17</p>
-                        </div>
-                        <div class="cat-detail-arrow">
-                            <p> > </p>
-                        </div>
-                    </a>
-                    <div class="single-cat"></div>
-                    <div class="single-cat"></div>
-                    <div class="single-cat"></div>
-                    <div class="single-cat"></div>
-                    <div class="single-cat"></div>
-                    <div class="single-cat"></div>
-                    <div class="single-cat"></div>
-                    <div class="single-cat"></div>
+                    </div>-->
+                    @if (ViewData["cats"] as List<CatAPILib.Models.Cat>  != null)
+                    {
+                        foreach (var cat in ViewData["cats"] as List<CatAPILib.Models.Cat>)
+                        {
+                            <a class="single-cat" asp-route="cat" asp-route-uid="@cat.uid">
+                                <div>
+                                    <p class="cat-name">@cat.name</p>
+                                    <p class="cat-age">Aged @cat.age</p>
+                                </div>
+                                <div class="cat-detail-arrow">
+                                    <p> > </p>
+                                </div>
+                            </a>
+                        }
+                    }
                 </div>
             </div>
             <div id="small-box">
@@ -83,6 +80,7 @@
                     <div class="box-title-deco"></div>
                 </div>
                 <div id="filters">
+
                 </div>
             </div>
         </div>

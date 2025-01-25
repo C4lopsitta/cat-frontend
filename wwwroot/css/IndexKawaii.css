@@ -74,7 +74,7 @@ input:focus{
 
     background-color: var(--background);
 
-    background-image: url(PngAssets/main-bg2.png);
+    background-image: url(../png/main-bg2.png);
     background-size: auto 100vh;
 }
 #big-box{
@@ -94,7 +94,7 @@ input:focus{
     border-bottom-left-radius: var(--border-radius-px);
     border-bottom-right-radius: var(--border-radius-px);
 
-    background-image: url(PngAssets/list-bg1.png);
+    background-image: url(../png/list-bg1.png);
     background-size: contain;
 }
 .single-cat{
@@ -190,7 +190,7 @@ input:focus{
     border-bottom-left-radius: var(--border-radius-px);
     border-bottom-right-radius: var(--border-radius-px);
 
-    background-image: url(PngAssets/list-bg1.png);
+    background-image: url(../png/list-bg1.png);
     background-size: cover;
 }
 

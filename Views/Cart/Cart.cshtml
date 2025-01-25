@@ -22,8 +22,8 @@
             </div>
             <div id="sidebar-mid">
                 <ul>
-                    <li><a href="indexKawaii.html">~  Home  ~</a></li>
-                    <li><a href="cartKawaii.html">~  Cart  ~</a></li>
+                    <li><a asp-route="home">~  Home  ~</a></li>
+                    <li><a asp-route="cart">~  Cart  ~</a></li>
                     <li><a href="#">~  Wishlist  ~</a></li>
                 </ul>
             </div>
@@ -41,7 +41,7 @@
                 </div>
                 <div id="list">
                     <div class="single-item">
-                        <a class="single-cat" href="dettaglioKawaii.html">
+                        <a class="single-cat" asp-route="cat">
                             <div>
                                 <p class="cat-name">Izutsumi</p>
                                 <p class="cat-price">One potato</p>
@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="single-item">
-                        <a class="single-cat" href="dettaglioKawaii.html">
+                        <a class="single-cat" asp-route="cat">
                             <div>
                                 <p class="cat-name"></p>
                                 <p class="cat-price"></p>
@@ -71,7 +71,7 @@
                     </div>
 
                     <div class="single-item">
-                        <a class="single-cat" href="dettaglioKawaii.html">
+                        <a class="single-cat" asp-route="cat">
                             <div class="cat-content-wrapper">
                                 <p class="cat-name">Nome lunghissimo o o o o</p>
                                 <p class="cat-price">prezzo a caso</p>
@@ -110,7 +110,7 @@
             </div>
 
             <div id="image">
-                <img src="PngAssets/cartThingyMaybe.png" alt="">
+                <img src="~/png/cartThingyMaybe.png" alt="">
             </div>
         </div>
     </div>
