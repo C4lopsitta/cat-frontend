@@ -10,7 +10,7 @@ namespace cat_frontend.Controllers
         }
         public IActionResult CatDetail(string uid)
         {
-            ViewData["uid"] = uid;
+            ViewData["cat"] = CatAPILib.CatEndpoints.ReadCat(uid);
             return View();
         }
     }

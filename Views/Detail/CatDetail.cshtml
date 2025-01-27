@@ -1,8 +1,22 @@
-﻿@*
+﻿@using CatAPILib.Models
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@model CatAPILib.Models.Cat
 @{
     Layout = null;
+    Cat cat = ViewData["cat"] as Cat;
+    string imgPath;
+    if (cat.image != null)
+    {
+        imgPath = cat.image;
+    }
+    else
+    {
+        imgPath = "https://i.pinimg.com/originals/db/1a/a8/db1aa8d0d6bc34df01a288ed01c6082d.png";
+    }
+
+    var priceDec = cat.price / 100;
 }
 <!DOCTYPE html>
 <head>
@@ -53,28 +67,28 @@
                         <div id="info-flex">
                             <div class="info-rows" id="main-info">
                                 <p class="info-title">Name</p>
-                                <p class="info-text">Izutsumi</p>
+                                <p class="info-text">@cat.name</p>
 
                                 <p class="info-title">Age</p>
-                                <p class="info-text">17</p>
+                                <p class="info-text">@cat.age</p>
 
                                 <p class="info-title">Fur</p>
-                                <p class="info-text">Black</p>
+                                <p class="info-text">@cat.furColor</p>
 
                                 <p class="info-title">Stray</p>
-                                <p class="info-text">Yes</p>
+                                <p class="info-text">@cat.isStray</p>
 
-                                <p class="info-title">Weight</p>
-                                <p class="info-text">108.4g</p>
+                                <p class="info-title">Weight (g)</p>
+                                <p class="info-text">@cat.weight</p>
 
                                 <p class="info-title">Type</p>
-                                <p class="info-text">Siamese</p>
+                                <p class="info-text">@cat.race</p>
 
                                 <p class="info-title">Last Seen</p>
-                                <p class="info-text">7-08-2024</p>
+                                <p class="info-text">@cat.whenLastSeen</p>
 
                                 <p class="info-title">Where</p>
-                                <p class="info-text">The Dungeon</p>
+                                <p class="info-text">@cat.whereLastSeen</p>
                             </div>
                         </div>
                     </div>
@@ -92,7 +106,7 @@
                 <div id="payment-box-wrapper">
                     <div class="info-rows">
                         <p class="info-title">Price</p>
-                        <p class="info-text">One potato</p>
+                        <p class="info-text">@priceDec</p>
                     </div>
                     <!--<p id="price">Price: a potato</p>-->
                     <button id="payment-btn">Add to Cart</button>
@@ -103,7 +117,7 @@
             <div id="polaroid">
                 <div id="img-wrapper">
                     <img id="avatar"
-                         src="https://i.pinimg.com/originals/db/1a/a8/db1aa8d0d6bc34df01a288ed01c6082d.png"
+                         src= "@imgPath"
                          alt="Izutsumi!">
                 </div>
             </div>
@@ -116,7 +130,7 @@
                         What am I like?
                     </div>
                     <div id="descr-body">
-                        Lorem Ipsum dolor sit amet
+                        @cat.description
                     </div>
                 </div>
             </div>
