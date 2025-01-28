@@ -11,7 +11,33 @@ namespace CatAPILib
 {
     public class UserEndpoints
     {
-        public static async Task<Dictionary<string, string>>? RegisterUser(User user)
+        public static async Task<List<User>?> GetAllUsers()
+        {
+            var jsonString = "";
+
+            try
+            {
+                var client = new HttpClient();
+                var request = new HttpRequestMessage(HttpMethod.Get, URIBuilder.BuildDomain("/users"));
+
+                var response = await client.SendAsync(request);
+                jsonString = await response.Content.ReadAsStringAsync();
+
+                response.EnsureSuccessStatusCode();
+
+                var ret = JsonConvert.DeserializeObject<List<User>>(jsonString);
+
+                return ret!;
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine(e.Message + jsonString);
+                return null;
+                
+            }
+        }
+
+        public static async Task<Dictionary<string, dynamic>?> RegisterUser(User user)
         {
             var jsonString = "";
 
@@ -33,19 +59,19 @@ namespace CatAPILib
 
                 response.EnsureSuccessStatusCode();
 
-                var ret = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonString);
+                var ret = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(jsonString);
 
                 return ret!;
             }
             catch (HttpRequestException e)
             {
-                Console.WriteLine(e.Message);
-                return JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonString)!;
+                Console.WriteLine(e.Message + jsonString);
+                return null;
             }
         }
 
 
-        public static async Task<Dictionary<string, dynamic>> ValidateNewUserAccount(string uid, string confirmationId)
+        public static async Task<Dictionary<string, dynamic>?> ValidateNewUserAccount(string uid, string confirmationId)
         {
 
             var jsonString = "";
@@ -71,13 +97,13 @@ namespace CatAPILib
             {
                 {
                     Console.WriteLine(e.Message);
-                    return JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(jsonString)!;
+                    return null;
                 }
             }
         }
     
 
-    public static async Task<Dictionary<string, dynamic>> AuthenticateUser(string email, string password, int? tfa = null)
+    public static async Task<Dictionary<string, dynamic>?> AuthenticateUser(string email, string password, int? tfa = null)
         {
             {
 
@@ -109,7 +135,7 @@ namespace CatAPILib
                 {
                     {
                         Console.WriteLine(e.Message);
-                        return JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(jsonString)!;
+                        return null;
                     }
                 }
             }
