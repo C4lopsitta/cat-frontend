@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="loginKawaiiDecent.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <script src="animate.js"></script>
+
+
+    <title>Kittens - Login</title>
+</head>
+<body>
+    <div id="outer-grid">
+        <!-- Sidebar -->
+        <div id="outer-side">
+            <div id="sidebar-top">
+                <p class="sidebar-title">(Kittens!)</p>
+            </div>
+            <div id="sidebar-mid">
+                <ul>
+                    <li><a href="indexKawaii.html">~  Home  ~</a></li>
+                    <li><a href="cartKawaii.html">~  Cart  ~</a></li>
+                    <li><a href="#">~  Wishlist  ~</a></li>
+                </ul>
+            </div>
+            <div id="sidebar-bot">
+                <p>Powered by cuteness</p>
+            </div>
+        </div>
+        
+        <!-- Main Page -->
+        <div id="main">
+
+        <!--Login Box-->
+            <div id="login-box">
+                <div class="box-title-bar">
+                    <div class="box-title-text">Sign-in</div>
+                    <div class="box-title-deco"></div>
+                </div>
+                <div id="box-content-wrapper">
+                    <div class="logo">
+                        <p class="sidebar-title">(Kittens!)</p>
+                    </div>
+                    <div id="login">
+                        <input type="text" name="login-user" placeholder="Username" class="field">
+                        <input type="password" name="login-pw" placeholder="Password" class="field">
+                        <input type="submit" name="confirm" value="Confirm" class="btn">
+                    </div>
+                    <div id="register-redirect">First time around here?&nbsp<a onclick="moveStuffAround(1)" href="#">Register!</a></div>
+                </div>
+            </div>
+
+        <!--Register Box-->
+            <div id="register-box">
+                <div class="box-title-bar">
+                    <div class="box-title-text">Sign-up</div>
+                    <div class="box-title-deco"></div>
+                </div>
+                <div id="box-content-wrapper">
+                    <div class="logo">
+                        <p class="sidebar-title">(Kittens!)</p>
+                    </div>
+                    <div id="register">
+                        <input type="text" name="register-user" placeholder="Username" class="field">
+                        <input type="text" name="register-pronouns" placeholder="Pronouns" class="field">
+                        <input type="text" name="register-mail" placeholder="E-mail" class="field">
+                        <input type="password" name="register-pw" placeholder="Password" class="field">
+                    </div>
+                    <div class="register-bottom-row">
+                        <div id="login-redirect">Already have an account?&nbsp<a onclick="moveStuffAround(0)" href="#">Login!</a></div>
+                        <input type="submit" name="confirm" value="Confirm" class="btn">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

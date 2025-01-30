@@ -1,0 +1,290 @@
+:root{
+    --border-radius-px: 40px;
+    --border-thickness: 4px;
+    --background: #ed9fac;
+    --accent: #f58ea3;
+    --surface: #f6e4e1;
+    --borders: #9a423d;
+    --shadows: #ec667f;
+    --shadows50: #ec667e30;
+    --overlays: #b64e5e;
+    --cream: #fff1d7;
+}
+
+
+
+*{
+    user-select: none;
+    font-family: 'Pretty Neat';
+}
+body{
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+}
+p{
+    margin: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+li{
+    padding-top: 1rem;
+    margin: .5rem;
+    width: fit-content;
+}
+a{
+    text-decoration: none;
+    color: var(--borders);
+}
+
+
+
+#outer-grid{
+    display: grid;
+    grid-template-columns: 8fr 32fr;
+    grid-template-rows: 1fr;
+    height: 100%;
+}
+#outer-side{
+    z-index: 20;
+    grid-column: 1;
+    background-color: var(--accent);
+    border-right: var(--border-thickness) solid var(--borders);
+
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+
+
+#main{
+    padding: 1rem;
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: repeat(32, 1fr);
+    grid-template-rows: repeat(22, 1fr);
+    height: 100vh;
+
+    background-color: var(--background);
+    
+    background-image: url(../png/main-bg2.png);
+    background-size: auto 100vh;
+}
+
+#polaroid{
+    background-color: whitesmoke;
+    grid-column: 8/ span 9;
+    grid-row: 3/ span 11;
+
+    display: flex;
+    justify-content: center;
+    transform: rotate(20deg);
+    transition-duration: .3s;
+
+    box-shadow: calc(0.01*100vw) calc(0.01*100vw) #ec667e30;
+}
+#polaroid:hover{
+    transform: rotate(0) scale(130%) translate(2vw, 0);
+    transition-duration: .3s;
+    transition-delay: .27s;
+    
+}
+#polaroid:hover + #note{
+    transform: rotate(-30deg) scale(90%) translate(-20vw, 30vh);
+    transition-duration: .3s;
+    transition-delay: .20s;
+}
+#img-wrapper{
+    background-image: none;
+    background-size:contain;
+}
+#avatar{
+    justify-self: end;
+    width: 80%;
+    margin: 10%;
+    transition-duration: .3s;
+    height: fit-content;
+}
+
+#info-big-box{
+    grid-column: 20/ span 10;
+    grid-row: 3/ span 10;
+
+    background-color: var(--cream);
+    border-radius: var(--border-radius-px);
+    border: var(--border-thickness) solid var(--borders);
+    box-shadow: calc(0.015*100vw) calc(0.015*100vw) #ec667e30;
+}
+#info-big-box-user{
+    grid-column: 20/ span 10;
+    grid-row: 3/ span 7;
+
+    background-color: var(--cream);
+    border-radius: var(--border-radius-px);
+    border: var(--border-thickness) solid var(--borders);
+    box-shadow: calc(0.015*100vw) calc(0.015*100vw) #ec667e30;
+}
+#info-box-wrapper{
+    height: calc(100% - 5rem - var(--border-thickness));
+    min-width: 0;
+    min-height: 0;
+}
+
+#payment-big-box{
+    grid-column: 20/ span 10;
+    grid-row: 14/ span 6;
+
+    background-color: var(--cream);
+    border-radius: var(--border-radius-px);
+    border: var(--border-thickness) solid var(--borders);
+    box-shadow: calc(0.015*100vw) calc(0.015*100vw) #ec667e30;
+}
+#payment-box-wrapper{
+    height: calc(100% - 5rem - var(--border-thickness));
+    min-width: 0;
+    min-height: 0;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+#price{
+    font-size: 2rem;
+    margin-top: 2vh;
+}
+#payment-btn{
+    height: 80%;
+    border-radius: var(--border-radius-px);
+    border: 2px dotted var(--borders);
+    background-color: var(--surface);
+    padding: 0 1vw;
+    margin: 1vh 1vh;
+    font-size: 1.5rem;
+    align-self: end;
+    justify-self: end;
+}
+
+
+
+#avatar-side{
+    grid-column: 3;
+    justify-content: end;
+    background-color: var(--cream);
+    border-bottom-right-radius: var(--border-radius-px);
+    border-bottom-left-radius: var(--border-radius-px);
+
+    overflow-y: scroll !important;
+    scrollbar-width: none;
+
+    height: 100%;
+
+}
+#info-flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.info-rows{
+    height: fit-content;
+    padding: 1vh;
+    padding-top: 2vh;
+    font-size: larger;
+
+    display: grid;
+    grid-template-columns: auto auto;
+}
+#main-info{
+    border-top: none;
+}
+.info-title{
+    font-weight: bold;
+    font-size: larger;
+    padding-bottom: .7rem;
+}
+.info-text{
+    justify-self: end;
+    font-size: larger;
+}
+
+#note{
+    z-index: 10;
+
+    grid-column: 3/ span 10;
+    grid-row: 4/ span 15;
+
+    background-color: var(--cream);
+    border-radius: var(--border-radius-px);
+    border: var(--border-thickness) solid var(--borders);
+
+    display: grid;
+    grid-template-columns: 2fr 18fr;
+    grid-template-rows: 1;
+
+    transform: rotate(-20deg) translateY(22vh) translateX(-3vw);
+    transition-duration: .3s;
+
+    box-shadow: calc(0.01*100vw) calc(0.01*100vw) #ec667e10;
+
+}
+#note:hover{
+    transform: rotate(0) scale(110%) translate(6.5vw, 0);
+    transition-duration: .3s;
+    transition-delay: .2s;
+}
+#descr{
+    border-radius: var(--border-radius-px);
+    color: var(--borders);
+    font-size: 2.5rem;
+    display: flex;
+    flex-direction: column;
+}
+#dashed-line{
+    width: 0px;
+    height: 70%;
+    border: calc(var(--border-thickness) - 2px) dashed var(--borders);
+    justify-self: end;
+}
+#descr-title{
+    width: min-auto;
+    padding-left: 35%;
+    padding-top: 1rem;
+    font-family: 'Cute Honey';
+    font-size: 3rem;
+    text-decoration: underline wavy 2px var(--borders);
+}
+#descr-body{
+    font-size: 1.5rem;
+    padding: 3rem;
+    text-overflow: ellipsis;
+}
+
+
+
+.box-title-bar{
+    margin: 0;
+    width: 100%;
+    height: 5rem;
+    background-color: var(--accent);
+    border-top-left-radius: calc(var(--border-radius-px) - 4px);
+    border-top-right-radius: calc(var(--border-radius-px) - 4px);
+    border-bottom: var(--border-thickness) solid var(--borders);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.box-title-bar > .box-title-deco{
+    margin: 0;
+    margin-right: 2vw;
+    background-color: var(--shadows50);
+    border-radius: var(--border-radius-px);
+    width: 30%;
+    height: 1.5rem;
+}
+.box-title-bar > .box-title-text{
+    margin-left: 1.5vw;
+    margin-top: .5rem;
+    font-family: 'Kitten Slant Regular';
+    font-size: 2.5rem;
+    color: var(--borders);
+}

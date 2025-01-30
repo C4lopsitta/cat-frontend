@@ -1,0 +1,117 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="~/css/cartKawaii.css" type="text/css">
+    <link rel="stylesheet" href="~/css/fonts.css" type="text/css">
+    <link rel="stylesheet" href="~/css/sidebar.css" type="text/css">
+
+
+    <title>Kittens - Cart</title>
+</head>
+<body>
+    <div id="outer-grid">
+        <!-- Sidebar -->
+        <div id="outer-side">
+            <div id="sidebar-top">
+                <p class="sidebar-title">(Kittens!)</p>
+            </div>
+            <div id="sidebar-mid">
+                <ul>
+                    <li><a asp-route="home">~  Home  ~</a></li>
+                    <li><a asp-route="cart">~  Cart  ~</a></li>
+                    <li><a href="#">~  Wishlist  ~</a></li>
+                </ul>
+            </div>
+            <div id="sidebar-bot">
+                <p>Powered by cuteness</p>
+            </div>
+        </div>
+
+        <!-- Main Page -->
+        <div id="main">
+            <div id="big-box">
+                <div class="box-title-bar">
+                    <div class="box-title-text">Cart</div>
+                    <div class="box-title-deco"></div>
+                </div>
+                <div id="list">
+                    <div class="single-item">
+                        <a class="single-cat" asp-route="cat">
+                            <div>
+                                <p class="cat-name">Izutsumi</p>
+                                <p class="cat-price">One potato</p>
+                            </div>
+                            <div class="cat-detail-arrow">
+                                <p> > </p>
+                            </div>
+                        </a>
+                        <div class="single-item-options">
+                            <p style="font-size: 1.5rem;">Remove</p>
+                        </div>
+                    </div>
+
+                    <div class="single-item">
+                        <a class="single-cat" asp-route="cat">
+                            <div>
+                                <p class="cat-name"></p>
+                                <p class="cat-price"></p>
+                            </div>
+                            <div class="cat-detail-arrow">
+                                <p> > </p>
+                            </div>
+                        </a>
+                        <div class="single-item-options">
+                            <p style="font-size: 1.5rem;">Remove</p>
+                        </div>
+                    </div>
+
+                    <div class="single-item">
+                        <a class="single-cat" asp-route="cat">
+                            <div class="cat-content-wrapper">
+                                <p class="cat-name">Nome lunghissimo o o o o</p>
+                                <p class="cat-price">prezzo a caso</p>
+                            </div>
+                            <div class="cat-detail-arrow">
+                                <p> > </p>
+                            </div>
+                        </a>
+                        <div class="single-item-options">
+                            <p style="font-size: 1.5rem;">Remove</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="small-box">
+                <div class="box-title-bar">
+                    <div class="box-title-text">Checkout</div>
+                    <div class="box-title-deco"></div>
+                </div>
+                <div id="checkout">
+                    <div id="info-flex">
+                        <div class="info-rows" id="main-info">
+                            <p class="info-title">Total</p>
+                            <p class="info-text">42.00€</p>
+
+                            <p class="info-title" style="font-size: 1rem;">VAT (included)</p>
+                            <p class="info-text" style="font-size: 1rem;">9.24€</p>
+                        </div>
+                    </div>
+                    <div id="btn-wrapper">
+                        <!--<input type="submit" name="confirm" value="Checkout" class="btn">-->
+                        <a href="paymentKawaii.html" class="btn">Checkout</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="image">
+                <img src="~/png/cartThingyMaybe.png" alt="">
+            </div>
+        </div>
+    </div>
+</body>

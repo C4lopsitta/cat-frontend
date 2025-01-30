@@ -1,0 +1,99 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="~/css/dettaglioKawaii.css" type="text/css">
+    <link rel="stylesheet" href="~/css/sidebar.css" type="text/css">
+    <link rel="stylesheet" href="~/css/fonts.css" type="text/css">
+
+
+    <title>Kittens - Detail</title>
+</head>
+<body>
+    <div id="outer-grid">
+        <!-- Sidebar -->
+        <div id="outer-side">
+            <div id="sidebar-top">
+                <p class="sidebar-title">(Kittens!)</p>
+            </div>
+            <div id="sidebar-mid">
+                <ul>
+                    <li><a asp-route="home">~  Home  ~</a></li>
+                    <li><a asp-route="cart">~  Cart  ~</a></li>
+                    <li><a href="#">~  Wishlist  ~</a></li>
+                </ul>
+            </div>
+            <div id="sidebar-bot">
+                <p>Powered by cuteness</p>
+            </div>
+        </div>
+
+        <!-- Main Page -->
+        <div id="main">
+
+            <div id="info-big-box-user">
+                <div class="box-title-bar">
+                    <div class="box-title-text">You!</div>
+                    <div class="box-title-deco"></div>
+                </div>
+
+                <!-- Window Contents -->
+                <div id="info-box-wrapper">
+
+                    <div id="avatar-side">
+                        <!--<img
+                            id="avatar"
+                            src="https://wallpapers-clan.com/wp-content/uploads/2022/07/kuromi-pfp-3.jpg"
+                            alt="Kuromi!"
+                        >-->
+                        <div id="info-flex">
+                            <div class="info-rows" id="main-info">
+                                <p class="info-title">Name</p>
+                                <p class="info-text">Senshi</p>
+
+                                <p class="info-title">Pronouns</p>
+                                <p class="info-text">he/him</p>
+
+                                <p class="info-title">Email</p>
+                                <p class="info-text">senshi@iCook.jp</p>
+
+                                <p class="info-title">Stray</p>
+                                <p class="info-text">Yes</p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div id="polaroid">
+                <div id="img-wrapper">
+                    <img id="avatar"
+                         src="https://i.pinimg.com/736x/82/f0/af/82f0afb53ad74ca96eed774a9514697e.jpg"
+                         alt="Senshi!">
+                </div>
+            </div>
+
+            <div id="note">
+                <div id="dashed-line"></div>
+
+                <div id="descr">
+                    <div id="descr-title">
+                        About myself...
+                    </div>
+                    <div id="descr-body">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum id quo dolorem culpa laborum explicabo velit, a adipisci numquam at esse dolore voluptatem, aliquid ipsa debitis, voluptatum rerum odio doloremque.
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</body>

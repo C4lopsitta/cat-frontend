@@ -1,5 +1,6 @@
 using cat_frontend.Models;
 using CatAPILib;
+using CatAPILib.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -16,6 +17,13 @@ namespace cat_frontend.Controllers
 
         public IActionResult Index()
         {
+            return View();
+        }
+
+        public IActionResult IndexKawaii()
+        {
+            ViewData["cats"] = CatEndpoints.ReadAllCats()!.Result;
+
             return View();
         }
 

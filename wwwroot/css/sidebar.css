@@ -1,0 +1,64 @@
+#outer-side{
+    z-index: 20;
+    grid-column: 1;
+    background-color: var(--accent);
+    border-right: var(--border-thickness) solid var(--borders);
+
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+}
+#sidebar-top{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: var(--cream);
+
+    --mask:
+        radial-gradient(7.89vh at 50% calc(100% - 10.8vh),#000 99%,#0000 101%) calc(50% - 8vh) 0/16vh 100%,
+        radial-gradient(7.89vh at 50% calc(100% + 6.8vh),#0000 99%,#000 101%) 50% calc(100% - 4vh)/16vh 100% repeat-x;
+    -webkit-mask: var(--mask);
+        mask: var(--mask);
+}
+.sidebar-title{
+    font-family: 'Cute Honey';
+    font-size: 4rem;
+    color: var(--borders);
+    padding-bottom: 4vh;
+}
+#sidebar-mid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#sidebar-mid > ul{
+    padding: 0;
+    list-style: none;
+}
+#sidebar-mid > ul > li{
+    width: inherit;
+    padding: 1rem;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+}
+#sidebar-bot{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--shadows50);
+
+    --mask:
+        radial-gradient(7.89vh at 50% 10.8vh,#000 99%,#0000 101%) calc(50% - 8vh) 0/16vh 100%,
+        radial-gradient(7.89vh at 50% -6.8vh,#0000 99%,#000 101%) 50% 4vh/16vh 100% repeat-x;
+    -webkit-mask: var(--mask);
+        mask: var(--mask);
+}
+#sidebar-bot > p{
+    font-family: 'Cute Honey';
+    color: var(--borders);
+    font-size: 2.5rem;
+    text-decoration: underline dotted var(--borders);
+}
