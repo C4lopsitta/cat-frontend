@@ -18,12 +18,12 @@ namespace CatAPILib.Models
         required public string furColor { get; set; }
         required public int weight { get; set; }
         required public bool isStray { get; set; }
-        required public int price { get; set; }
+        required public int? price { get; set; }
         required public string owner { get; set; }
         required public string image { get; set; }
         required public string imageMime { get; set; }
 
-        public Cat(string uid, string name, int age, string description, string whenLastSeen, string whereLastSeen, string race, string furColor, int weight, bool isStray, int price, string owner, string image, string imageMime)
+        public Cat(string uid, string name, int age, string description, string whenLastSeen, string whereLastSeen, string race, string furColor, int weight, bool isStray, int? price, string owner, string image, string imageMime)
         {
             this.uid = uid;
             this.name = name;
@@ -35,10 +35,10 @@ namespace CatAPILib.Models
             this.furColor = furColor;
             this.weight = weight;
             this.isStray = isStray;
-            this.price = price;
-            this.owner = owner;
             this.image = image;
             this.imageMime = imageMime;
+            this.price = price;
+            this.owner = owner;
         }
     }
 }
