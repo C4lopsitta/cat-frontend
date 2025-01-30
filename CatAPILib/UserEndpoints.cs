@@ -11,31 +11,6 @@ namespace CatAPILib
 {
     public class UserEndpoints
     {
-        public static async Task<User?> GetUserById(string uid)
-        {
-            var jsonString = "";
-
-            try
-            {
-                var client = new HttpClient();
-                var request = new HttpRequestMessage(HttpMethod.Get, URIBuilder.BuildDomain($"/users/{uid}"));
-
-                var response = await client.SendAsync(request);
-                jsonString = await response.Content.ReadAsStringAsync();
-
-                response.EnsureSuccessStatusCode();
-
-                var ret = JsonConvert.DeserializeObject<User>(jsonString);
-
-                return ret!;
-            }
-            catch (HttpRequestException e)
-            {
-                Console.WriteLine(e.Message + jsonString);
-                return null;
-
-            }
-        }
         public static async Task<List<User>?> GetAllUsers()
         {
             var jsonString = "";
