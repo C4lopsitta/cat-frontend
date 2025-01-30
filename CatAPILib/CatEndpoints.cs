@@ -12,7 +12,7 @@ namespace CatAPILib
 {
     class CatEndpoints
     {
-        public static async Task<List<Cat>>? ReadAllCats()
+        public static async Task<List<Cat>?> ReadAllCats()
         {
             var jsonString = "";
 
@@ -34,7 +34,7 @@ namespace CatAPILib
             }
         }
 
-        public static async Task<Cat>? ReadCat(string uid) {
+        public static async Task<Cat?> ReadCat(string uid) {
 
             var jsonString = "";
 
