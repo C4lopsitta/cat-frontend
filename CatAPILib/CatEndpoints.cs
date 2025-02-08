@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CatAPILib.Models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace CatAPILib
 {
@@ -97,7 +98,7 @@ namespace CatAPILib
             }
         }
 
-        public static async Task<Dictionary<string, dynamic>?> UpdateCat(Cat cat)
+        public static async Task<Dictionary<string, dynamic>?> UpdateCat(Cat cat, string token)
         {
             var jsonString = "";
 
@@ -106,7 +107,8 @@ namespace CatAPILib
                 var client = new HttpClient();
                 var request = new HttpRequestMessage(HttpMethod.Put, URIBuilder.BuildDomain($"/cats/{cat.uid}"));
 
-                //TODO: Add request header (bearer token for authorization)
+                request.Headers.Add("Accept", "application/json");
+                request.Headers.Add("Authorization", $"Bearer {token}");
 
                 request.Content = JsonContent.Create(new
                 {
@@ -139,7 +141,7 @@ namespace CatAPILib
             }
         }
 
-        public static async Task<bool?> DeleteCat(string uid)
+        public static async Task<bool?> DeleteCat(string uid, string token)
         {
 
             var jsonString = "";
@@ -148,6 +150,9 @@ namespace CatAPILib
             {
                 var client = new HttpClient();
                 var request = new HttpRequestMessage(HttpMethod.Delete, URIBuilder.BuildDomain($"/cats/{uid}"));
+
+                request.Headers.Add("Accept", "application/json");
+                request.Headers.Add("Authorization", $"Bearer {token}");
 
                 var response = await client.SendAsync(request);
                 jsonString = await response.Content.ReadAsStringAsync();
@@ -164,7 +169,7 @@ namespace CatAPILib
             }
         }
 
-        public static async Task<Dictionary<string, dynamic>?> SellCat(string uid, int price)
+        public static async Task<Dictionary<string, dynamic>?> SellCat(string uid, int price, string token)
         {
             var jsonString = "";
 
@@ -173,7 +178,8 @@ namespace CatAPILib
                 var client = new HttpClient();
                 var request = new HttpRequestMessage(HttpMethod.Post, URIBuilder.BuildDomain($"/cats/{uid}/sell"));
 
-                //TODO: Add request header (bearer token for authorization)
+                request.Headers.Add("Accept", "application/json");
+                request.Headers.Add("Authorization", $"Bearer {token}");
 
                 request.Content = JsonContent.Create(new
                 {

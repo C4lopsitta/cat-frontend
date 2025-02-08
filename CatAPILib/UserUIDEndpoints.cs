@@ -41,7 +41,7 @@ namespace CatAPILib
             }
         }
 
-        public static async Task<User?> UpdateUser(User user)
+        public static async Task<User?> UpdateUser(User user, string token)
         {
             var jsonString = "";
 
@@ -50,7 +50,8 @@ namespace CatAPILib
                 var client = new HttpClient();
                 var request = new HttpRequestMessage(HttpMethod.Put, URIBuilder.BuildDomain($"/users/{user.uid}"));
 
-                //TODO: Add request header (bearer token for authorization)
+                request.Headers.Add("Accept", "application/json");
+                request.Headers.Add("Authorization", $"Bearer {token}");
 
                 request.Content = JsonContent.Create(new
                 {
@@ -76,7 +77,7 @@ namespace CatAPILib
             }
         }
 
-        public static async Task<bool?> DeleteUser(string uid)
+        public static async Task<bool?> DeleteUser(string uid, string token)
         {
 
             var jsonString = "";
@@ -85,6 +86,9 @@ namespace CatAPILib
             {
                 var client = new HttpClient();
                 var request = new HttpRequestMessage(HttpMethod.Delete, URIBuilder.BuildDomain($"/users/{uid}"));
+
+                request.Headers.Add("Accept", "application/json");
+                request.Headers.Add("Authorization", $"Bearer {token}");
 
                 var response = await client.SendAsync(request);
                 jsonString = await response.Content.ReadAsStringAsync();
