@@ -97,7 +97,7 @@ namespace CatAPILib
             }
         }
 
-        public static async Task<Dictionary<string, dynamic>>? UpdateCat(Cat cat)
+        public static async Task<Dictionary<string, dynamic>?> UpdateCat(Cat cat)
         {
             var jsonString = "";
 
@@ -139,7 +139,7 @@ namespace CatAPILib
             }
         }
 
-        public static async Task<bool>? DeleteCat(string uid)
+        public static async Task<bool?> DeleteCat(string uid)
         {
 
             var jsonString = "";
@@ -164,7 +164,7 @@ namespace CatAPILib
             }
         }
 
-        public static async Task<Dictionary<string, dynamic>>? SellCat(string uid, int price)
+        public static async Task<Dictionary<string, dynamic>?> SellCat(string uid, int price)
         {
             var jsonString = "";
 
@@ -192,7 +192,7 @@ namespace CatAPILib
             catch (HttpRequestException e)
             {
                 Console.WriteLine(e.Message);
-                return JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(jsonString)!;
+                return null;
             }
         }
     }
