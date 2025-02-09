@@ -65,6 +65,7 @@ a{
     grid-template-columns: repeat(32, 1fr);
     grid-template-rows: repeat(22, 1fr);
     height: 100vh;
+    min-height:0;
 
     background-color: var(--background);
     
@@ -133,7 +134,9 @@ a{
 
 #payment-big-box{
     grid-column: 20/ span 10;
-    grid-row: 14/ span 6;
+    grid-row: 14/ span 8;
+
+    height:fit-content;
 
     background-color: var(--cream);
     border-radius: var(--border-radius-px);
@@ -144,15 +147,13 @@ a{
     height: calc(100% - 5rem - var(--border-thickness));
     min-width: 0;
     min-height: 0;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
 }
 #price{
     font-size: 2rem;
     margin-top: 2vh;
 }
 #payment-btn{
-    height: 80%;
+    height: 4rem;
     border-radius: var(--border-radius-px);
     border: 2px dotted var(--borders);
     background-color: var(--surface);
@@ -161,6 +162,7 @@ a{
     font-size: 1.5rem;
     align-self: end;
     justify-self: end;
+    grid-column: 2;
 }
 
 

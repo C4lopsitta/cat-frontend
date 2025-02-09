@@ -71,6 +71,7 @@ input:focus{
     grid-template-columns: repeat(32, 1fr);
     grid-template-rows: repeat(22, 1fr);
     height: 100vh;
+    min-height:0;
 
     background-color: var(--background);
 
@@ -79,7 +80,7 @@ input:focus{
 }
 #big-box{
     grid-column: 3/ span 18;
-    grid-row: 4/ span 14;
+    grid-row: 4/ span 10;
 
     background-color: var(--surface);
     border-radius: var(--border-radius-px);
@@ -159,7 +160,8 @@ input:focus{
 
 #small-box{
     grid-column: 23/ span 8 ;
-    grid-row: 4 / span 7;
+    grid-row: 4;
+    min-height: max-content;
 
     background-color: var(--surface);
     border-radius: var(--border-radius-px);
