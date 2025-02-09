@@ -13,15 +13,13 @@ namespace CatAPILib
     {
         public static async Task<List<User>?> GetAllUsers()
         {
-            var jsonString = "";
-
             try
             {
                 var client = new HttpClient();
                 var request = new HttpRequestMessage(HttpMethod.Get, URIBuilder.BuildDomain("/users"));
 
                 var response = await client.SendAsync(request);
-                jsonString = await response.Content.ReadAsStringAsync();
+                var jsonString = await response.Content.ReadAsStringAsync();
 
                 response.EnsureSuccessStatusCode();
 
@@ -31,7 +29,7 @@ namespace CatAPILib
             }
             catch (HttpRequestException e)
             {
-                Console.WriteLine(e.Message + jsonString);
+                Console.WriteLine(e.Message);
                 return null;
                 
             }
@@ -39,8 +37,6 @@ namespace CatAPILib
 
         public static async Task<Dictionary<string, dynamic>?> RegisterUser(User user)
         {
-            var jsonString = "";
-
             try
             {
                 var client = new HttpClient();
@@ -55,7 +51,7 @@ namespace CatAPILib
                 });
 
                 var response = await client.SendAsync(request);
-                jsonString = await response.Content.ReadAsStringAsync();
+                var jsonString = await response.Content.ReadAsStringAsync();
 
                 response.EnsureSuccessStatusCode();
 
@@ -65,7 +61,7 @@ namespace CatAPILib
             }
             catch (HttpRequestException e)
             {
-                Console.WriteLine(e.Message + jsonString);
+                Console.WriteLine(e.Message);
                 return null;
             }
         }
@@ -73,8 +69,6 @@ namespace CatAPILib
 
         public static async Task<Dictionary<string, dynamic>?> ValidateNewUserAccount(string uid, string confirmationId)
         {
-
-            var jsonString = "";
             try
             {
                 var client = new HttpClient();
@@ -85,7 +79,7 @@ namespace CatAPILib
                 });
 
                 var response = await client.SendAsync(request);
-                jsonString = await response.Content.ReadAsStringAsync();
+                var jsonString = await response.Content.ReadAsStringAsync();
 
                 response.EnsureSuccessStatusCode();
 
@@ -106,8 +100,6 @@ namespace CatAPILib
     public static async Task<Dictionary<string, dynamic>?> AuthenticateUser(string email, string password, int? tfa = null)
         {
             {
-
-                var jsonString = "";
                 try
                 {
                     var client = new HttpClient();
@@ -123,7 +115,7 @@ namespace CatAPILib
 
 
                     var response = await client.SendAsync(request);
-                    jsonString = await response.Content.ReadAsStringAsync();
+                    var jsonString = await response.Content.ReadAsStringAsync();
 
                     response.EnsureSuccessStatusCode();
 

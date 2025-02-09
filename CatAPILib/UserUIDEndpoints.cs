@@ -13,8 +13,6 @@ namespace CatAPILib
     {
         public static async Task<User?> GetUserById(string uid, string token)
         {
-            var jsonString = "";
-
             try
             {
                 
@@ -25,7 +23,7 @@ namespace CatAPILib
                 request.Headers.Add("Authorization", $"Bearer {token}");
 
                 var response = await client.SendAsync(request);
-                jsonString = await response.Content.ReadAsStringAsync();
+                var jsonString = await response.Content.ReadAsStringAsync();
 
                 response.EnsureSuccessStatusCode();
 
@@ -35,7 +33,7 @@ namespace CatAPILib
             }
             catch (HttpRequestException e)
             {
-                Console.WriteLine(e.Message + jsonString);
+                Console.WriteLine(e.Message);
                 return null;
 
             }
@@ -43,8 +41,6 @@ namespace CatAPILib
 
         public static async Task<User?> UpdateUser(User user, string token)
         {
-            var jsonString = "";
-
             try
             {
                 var client = new HttpClient();
@@ -62,7 +58,7 @@ namespace CatAPILib
                 });
 
                 var response = await client.SendAsync(request);
-                jsonString = await response.Content.ReadAsStringAsync();
+                var jsonString = await response.Content.ReadAsStringAsync();
 
                 response.EnsureSuccessStatusCode();
 
@@ -79,9 +75,6 @@ namespace CatAPILib
 
         public static async Task<bool?> DeleteUser(string uid, string token)
         {
-
-            var jsonString = "";
-
             try
             {
                 var client = new HttpClient();
@@ -91,8 +84,10 @@ namespace CatAPILib
                 request.Headers.Add("Authorization", $"Bearer {token}");
 
                 var response = await client.SendAsync(request);
-                jsonString = await response.Content.ReadAsStringAsync();
+                var jsonString = await response.Content.ReadAsStringAsync();
+
                 response.EnsureSuccessStatusCode();
+                
                 var respJson = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(jsonString);
                 if (respJson["success"] == bool.TrueString)
                     return true;
