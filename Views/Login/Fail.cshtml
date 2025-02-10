@@ -4,5 +4,68 @@
 @{
     Layout = null;
 }
-<p>whoops</p>
-<a href="/login">Return to login!</a>
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="~/css/paymentKawaii.css" type="text/css">
+    <link rel="stylesheet" href="~/css/fonts.css" type="text/css">
+    <link rel="stylesheet" href="~/css/sidebar.css" type="text/css">
+    <script src="animate.js"></script>
+
+    <style>
+        .center-this{
+            width: 100%;
+            height: 70%;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+        .center-this > *{
+            font-size: 1.5rem;
+        }
+    </style>
+
+    <title>Kittens - Whoops</title>
+</head>
+<body>
+    <div id="outer-grid">
+        <!-- Sidebar -->
+        <div id="outer-side">
+            <div id="sidebar-top">
+                <p class="sidebar-title">(Kittens!)</p>
+            </div>
+            <div id="sidebar-mid">
+                <ul>
+                    <li><a asp-route="home">~  Home  ~</a></li>
+                    <li><a asp-route="cart">~  Cart  ~</a></li>
+                    <li><a asp-route="user">~  Profile ~</a></li>
+                </ul>
+            </div>
+            <div id="sidebar-bot">
+                <p>Powered by cuteness</p>
+            </div>
+        </div>
+
+        <!-- Main Page -->
+        <div id="main">
+
+            <!--Payment Box-->
+            <div id="payment-box">
+                <div class="box-title-bar">
+                    <div class="box-title-text">Error</div>
+                    <div class="box-title-deco"></div>
+                </div>
+                <div id="box-content-wrapper">
+                    <div class="logo">
+                        <p class="sidebar-title">(Whoops!)</p>
+                    </div>
+
+                    <div class="center-this">
+                        <p>We had some sort of oopsie, sorry!</p>
+                        <a href="/login">Return to login.</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

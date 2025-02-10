@@ -190,7 +190,7 @@ input:focus{
     border-bottom-left-radius: var(--border-radius-px);
     border-bottom-right-radius: var(--border-radius-px);
 
-    background-image: url(../png/list-bg1.png);
+    background-image: url(../png/avatar-bg2.png);
     background-size: cover;
 }
 

@@ -152,7 +152,7 @@ a{
     font-size: 2rem;
     margin-top: 2vh;
 }
-#payment-btn{
+#payment-btn {
     height: 4rem;
     border-radius: var(--border-radius-px);
     border: 2px dotted var(--borders);
@@ -162,6 +162,8 @@ a{
     font-size: 1.5rem;
     align-self: end;
     justify-self: end;
+    color: black;
+    align-content: center;
     grid-column: 2;
 }
 
