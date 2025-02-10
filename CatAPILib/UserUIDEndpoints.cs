@@ -1,66 +1,70 @@
-﻿using System;
+﻿using CatAPILib.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Json;
-using System.Runtime.InteropServices.JavaScript;
 using System.Text;
 using System.Threading.Tasks;
-using System.Threading.Tasks.Dataflow;
-using CatAPILib.Models;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace CatAPILib
 {
-    public class ManageUserWishlist
+    public class UserUIDEndpoints
     {
-        public static async Task<Dictionary<string, dynamic>?> GetWishlist(string uid)
+        public static async Task<User?> GetUserById(string uid, string token)
         {
             try
             {
+                
                 var client = new HttpClient();
-                var request = new HttpRequestMessage(HttpMethod.Get, URIBuilder.BuildDomain($"/users/{uid}/wishlist"));
-                var response = await client.SendAsync(request);
-                response.EnsureSuccessStatusCode();
+                var request = new HttpRequestMessage(HttpMethod.Get, URIBuilder.BuildDomain($"/users/{uid}"));
 
+                request.Headers.Add("Accept", "application/json");
+                request.Headers.Add("Authorization", $"Bearer {token}");
+
+                var response = await client.SendAsync(request);
                 var jsonString = await response.Content.ReadAsStringAsync();
 
-                
-                var ret = JsonConvert.DeserializeObject<Dictionary<string,dynamic>?>(jsonString)!;
-               
+                response.EnsureSuccessStatusCode();
+
+                var ret = JsonConvert.DeserializeObject<User>(jsonString);
+
                 return ret;
             }
-            catch (Exception ex)
+            catch (HttpRequestException e)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(e.Message);
                 return null;
+
             }
         }
 
-        public static async Task<Dictionary<string, dynamic>?> AddItem(string uid, string catUid, string token)
+        public static async Task<User?> UpdateUser(User user, string token)
         {
             try
             {
                 var client = new HttpClient();
-                var request = new HttpRequestMessage(HttpMethod.Put, URIBuilder.BuildDomain($"/users/{uid}/wishlist"));
+                var request = new HttpRequestMessage(HttpMethod.Put, URIBuilder.BuildDomain($"/users/{user.uid}"));
 
                 request.Headers.Add("Accept", "application/json");
                 request.Headers.Add("Authorization", $"Bearer {token}");
 
                 request.Content = JsonContent.Create(new
                 {
-                    catUid = catUid,
+                    description = user.description,
+                    pronouns = user.pronouns,
+                    image = user.image,
+                    imageMime = user.imageMime
                 });
-
 
                 var response = await client.SendAsync(request);
                 var jsonString = await response.Content.ReadAsStringAsync();
 
                 response.EnsureSuccessStatusCode();
 
-                var respJson = JsonConvert.DeserializeObject<Dictionary<string, dynamic>?>(jsonString);
+                var ret = JsonConvert.DeserializeObject<User>(jsonString);
 
-                return respJson;
+                return ret!;
             }
             catch (HttpRequestException e)
             {
@@ -69,37 +73,32 @@ namespace CatAPILib
             }
         }
 
-        public static async Task<Dictionary<string, dynamic>?> DeleteItems(string uid, string[] catUids, string token)
+        public static async Task<bool?> DeleteUser(string uid, string token)
         {
-
             try
             {
                 var client = new HttpClient();
-                var request = new HttpRequestMessage(HttpMethod.Delete, URIBuilder.BuildDomain($"/users/{uid}/wishlist"));
+                var request = new HttpRequestMessage(HttpMethod.Delete, URIBuilder.BuildDomain($"/users/{uid}"));
 
                 request.Headers.Add("Accept", "application/json");
                 request.Headers.Add("Authorization", $"Bearer {token}");
-
-                request.Content = JsonContent.Create(new
-                {
-                    cats = catUids,
-                });
-
 
                 var response = await client.SendAsync(request);
                 var jsonString = await response.Content.ReadAsStringAsync();
 
                 response.EnsureSuccessStatusCode();
-
-                var respJson = JsonConvert.DeserializeObject<Dictionary<string, dynamic>?>(jsonString);
-
-                return respJson;
+                
+                var respJson = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(jsonString);
+                if (respJson["success"] == bool.TrueString)
+                    return true;
+                else return false;
             }
             catch (HttpRequestException e)
             {
                 Console.WriteLine(e.Message);
-                return null;
+                return false;
             }
         }
+
     }
 }
