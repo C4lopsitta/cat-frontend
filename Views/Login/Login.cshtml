@@ -46,11 +46,11 @@
                     <div class="logo">
                         <p class="sidebar-title">(Kittens!)</p>
                     </div>
-                    <div id="login">
-                        <input type="text" name="login-user" placeholder="Username" class="field">
-                        <input type="password" name="login-pw" placeholder="Password" class="field">
+                    <form id="login" asp-controller="Login" asp-action="SendData" method="post">
+                        <input type="text" name="loginEmail" placeholder="Email" class="field">
+                        <input type="password" name="loginPw" placeholder="Password" class="field">
                         <input type="submit" name="confirm" value="Confirm" class="btn">
-                    </div>
+                    </form>
                     <div id="register-redirect">First time around here?&nbsp<a onclick="moveStuffAround(1)" href="#">Register!</a></div>
                 </div>
             </div>

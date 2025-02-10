@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CatAPILib;
+using Microsoft.AspNetCore.Mvc;
 
 namespace cat_frontend.Controllers
 {
@@ -11,7 +12,8 @@ namespace cat_frontend.Controllers
         }
         public IActionResult CatDetail(string uid)
         {
-            ViewData["cat"] = CatAPILib.CatEndpoints.ReadCat(uid).Result;
+            ViewData["cat"] = CatEndpoints.ReadCat(uid).Result;
+            
             return View();
         }
     }
