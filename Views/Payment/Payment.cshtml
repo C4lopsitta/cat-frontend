@@ -12,7 +12,7 @@
     <script src="animate.js"></script>
 
 
-    <title>Kittens - Login</title>
+    <title>Kittens - Payment</title>
 </head>
 <body>
     <div id="outer-grid">
@@ -46,7 +46,7 @@
                     <div class="logo">
                         <p class="sidebar-title">(Kittens!)</p>
                     </div>
-                    <div id="payment">
+                    <form id="payment" method="post" asp-controller="Payment" asp-action="Checkout">
                         <input type="text" name="payment-cardholder" placeholder="Full name" class="field">
                         <div id="payment-cvv-row">
                             <input type="text" name="payment-card-number" placeholder="Card number" class="field">
@@ -56,8 +56,7 @@
                         <div class="payment-bottom-row">
                             <input type="submit" name="confirm" value="Confirm" class="btn">
                         </div>
-
-                    </div>
+                    </form>
 
                 </div>
             </div>

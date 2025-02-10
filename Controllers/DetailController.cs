@@ -4,8 +4,9 @@ namespace cat_frontend.Controllers
 {
     public class DetailController : Controller
     {
-        public IActionResult UserDetail()
+        public IActionResult UserDetail(string uid)
         {
+            //ViewData["user"] = CatAPILib.UserEndpoints.GetUserById(uid).Result;
             return View();
         }
         public IActionResult CatDetail(string uid)

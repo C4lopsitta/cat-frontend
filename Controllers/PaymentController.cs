@@ -8,5 +8,11 @@ namespace cat_frontend.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Checkout([FromBody] string paymentCardNumber)
+        {
+            Console.WriteLine(paymentCardNumber);   
+            return Payment();
+        }
     }
 }

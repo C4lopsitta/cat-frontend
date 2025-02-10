@@ -1,8 +1,32 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@model CatAPILib.Models.User
 @{
     Layout = null;
+    CatAPILib.Models.User user = new CatAPILib.Models.User() as CatAPILib.Models.User;
+    string? imgPath = null;
+    if (user != null)
+    {
+        if (user.image != null) { imgPath = user.image; }
+        else { imgPath = "https://i.pinimg.com/originals/db/1a/a8/db1aa8d0d6bc34df01a288ed01c6082d.png"; }
+
+        if (user.pronouns == null) user.pronouns = "Not set";
+        if (user.description == null) user.description = "...";
+    }
+    else
+    {
+        user = new CatAPILib.Models.User(
+            "uid",
+            "John Doe",
+            null,
+            null,
+            "One-eyed, one-horned, purple people eater",
+            "they/them",
+            null,
+            null
+        );    
+    }
 }
 <!DOCTYPE html>
 <head>
@@ -11,7 +35,7 @@
     <link rel="stylesheet" href="~/css/fonts.css" type="text/css">
 
 
-    <title>Kittens - Detail</title>
+    <title>Kittens - User</title>
 </head>
 <body>
     <div id="outer-grid">
@@ -53,16 +77,13 @@
                         <div id="info-flex">
                             <div class="info-rows" id="main-info">
                                 <p class="info-title">Name</p>
-                                <p class="info-text">Senshi</p>
+                                <p class="info-text">@user.username</p>
 
                                 <p class="info-title">Pronouns</p>
-                                <p class="info-text">he/him</p>
+                                <p class="info-text">@user.pronouns</p>
 
                                 <p class="info-title">Email</p>
-                                <p class="info-text">senshi@iCook.jp</p>
-
-                                <p class="info-title">Stray</p>
-                                <p class="info-text">Yes</p>
+                                <p class="info-text">@user.email</p>
 
                             </div>
                         </div>
@@ -75,8 +96,8 @@
             <div id="polaroid">
                 <div id="img-wrapper">
                     <img id="avatar"
-                         src="https://i.pinimg.com/736x/82/f0/af/82f0afb53ad74ca96eed774a9514697e.jpg"
-                         alt="Senshi!">
+                         src="@(imgPath!=null?imgPath:"https://i.pinimg.com/736x/82/f0/af/82f0afb53ad74ca96eed774a9514697e.jpg")"
+                         alt="User image">
                 </div>
             </div>
 
@@ -88,7 +109,7 @@
                         About myself...
                     </div>
                     <div id="descr-body">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum id quo dolorem culpa laborum explicabo velit, a adipisci numquam at esse dolore voluptatem, aliquid ipsa debitis, voluptatum rerum odio doloremque.
+                        @user.description
                     </div>
                 </div>
             </div>

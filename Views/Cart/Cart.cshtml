@@ -1,8 +1,31 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@model CatAPILib.Models.Cat
 @{
     Layout = null;
+    List<CatAPILib.Models.Cat>? cartItems = ViewData["cartItems"] as List<CatAPILib.Models.Cat>;
+    double? total = 0;
+    string amount = (ViewData["amount"] != null)?((ViewData["amount"] as string) + (ViewData["currency"] as string)):("N/A");
+    string vat = (ViewData["vat"] != null)?(ViewData["vat"] as string):("N/A");
+    if (cartItems != null)
+    {
+        foreach (CatAPILib.Models.Cat cat in cartItems)
+        {
+            if (cat != null)
+            {
+                if (cat.image == null){cat.image = "https://i.pinimg.com/originals/db/1a/a8/db1aa8d0d6bc34df01a288ed01c6082d.png";}
+                if (cat.price != null && cat.price != 0)
+                {
+                    total += cat.price / 100.0;
+                }
+                else
+                {
+                    cat.price = 0;
+                }
+            }
+        }
+    }
 }
 <!DOCTYPE html>
 <head>
@@ -40,11 +63,13 @@
                     <div class="box-title-deco"></div>
                 </div>
                 <div id="list">
+                    @if(cartItems != null){
+                    @foreach (CatAPILib.Models.Cat cat in cartItems) {
                     <div class="single-item">
                         <a class="single-cat" asp-route="cat">
                             <div>
-                                <p class="cat-name">Izutsumi</p>
-                                <p class="cat-price">One potato</p>
+                                <p class="cat-name">@cat.name</p>
+                                <p class="cat-price">@cat.price</p>
                             </div>
                             <div class="cat-detail-arrow">
                                 <p> > </p>
@@ -54,7 +79,9 @@
                             <p style="font-size: 1.5rem;">Remove</p>
                         </div>
                     </div>
-
+                    }
+                    }
+                    <!--
                     <div class="single-item">
                         <a class="single-cat" asp-route="cat">
                             <div>
@@ -84,6 +111,7 @@
                             <p style="font-size: 1.5rem;">Remove</p>
                         </div>
                     </div>
+                    -->
                 </div>
             </div>
             <div id="small-box">
@@ -95,15 +123,15 @@
                     <div id="info-flex">
                         <div class="info-rows" id="main-info">
                             <p class="info-title">Total</p>
-                            <p class="info-text">42.00€</p>
+                            <p class="info-text">@amount</p>
 
                             <p class="info-title" style="font-size: 1rem;">VAT (included)</p>
-                            <p class="info-text" style="font-size: 1rem;">9.24€</p>
+                            <p class="info-text" style="font-size: 1rem;">@vat</p>
                         </div>
                     </div>
                     <div id="btn-wrapper">
                         <!--<input type="submit" name="confirm" value="Checkout" class="btn">-->
-                        <a href="paymentKawaii.html" class="btn">Checkout</a>
+                        <a asp-route="payment" class="btn">Checkout</a>
                     </div>
                 </div>
 
