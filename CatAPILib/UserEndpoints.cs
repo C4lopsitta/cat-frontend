@@ -47,7 +47,8 @@ namespace CatAPILib
                     username = user.username,
                     password = user.password,
                     emailConfirmationBaseUrl = user.emailConfirmationBaseUrl,
-                    description = user.pronouns
+                    description = user.description,
+                    pronouns = user.pronouns
                 });
 
                 var response = await client.SendAsync(request);
