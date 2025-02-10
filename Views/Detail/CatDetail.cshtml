@@ -41,7 +41,7 @@
                 <ul>
                     <li><a asp-route="home">~  Home  ~</a></li>
                     <li><a asp-route="cart">~  Cart  ~</a></li>
-                    <li><a href="#">~  Wishlist  ~</a></li>
+                    <li><a asp-route="user">~  Profile ~</a></li>
                 </ul>
             </div>
             <div id="sidebar-bot">
@@ -110,7 +110,7 @@
                     <div class="info-rows">
                         <p class="info-title">Price</p>
                         <p class="info-text">@(priceDec!=null?priceDec:"N/A")</p>
-                        <button id="payment-btn">Add to Cart</button>
+                        <a id="payment-btn" asp-route="cart">Add to Cart</a>
 
                     </div>
                     <!--<p id="price">Price: a potato</p>-->

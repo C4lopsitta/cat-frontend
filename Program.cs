@@ -59,6 +59,16 @@ app.MapControllerRoute(
     pattern: "login",
     defaults: new { controller = "Login", action = "Login" }
 );
+app.MapControllerRoute(
+    name: "fail",
+    pattern: "Login/fail",
+    defaults: new { controller = "Login", action = "Fail" }
+);
+app.MapControllerRoute(
+    name: "verify",
+    pattern: "Login/verify",
+    defaults: new { controller = "Login", action = "Verify" }
+);
 
 app.MapControllerRoute(
     name: "cat",
@@ -75,6 +85,11 @@ app.MapControllerRoute(
     name: "user",
     pattern: "user",
     defaults: new { controller = "Detail", action = "UserDetail" }
+);
+app.MapControllerRoute(
+    name: "logout",
+    pattern: "logout",
+    defaults: new { controller = "Detail", action = "LogOut" }
 );
 
 app.Run();

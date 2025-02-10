@@ -22,6 +22,15 @@ namespace cat_frontend.Controllers
             
             return View();
         }
+
+        public IActionResult LogOut()
+        {
+            HttpContext.Session.Remove("uid");
+            HttpContext.Session.Remove("token");
+
+            return RedirectToRoute("login");
+        }
+
         public IActionResult CatDetail(string uid)
         {
             ViewData["cat"] = CatEndpoints.ReadCat(uid).Result;

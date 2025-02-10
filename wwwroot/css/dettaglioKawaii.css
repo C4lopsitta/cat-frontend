@@ -203,9 +203,12 @@ a{
     font-size: larger;
     padding-bottom: .7rem;
 }
-.info-text{
+.info-text {
     justify-self: end;
     font-size: larger;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 70%;
 }
 
 #note{
