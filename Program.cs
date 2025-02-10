@@ -73,11 +73,6 @@ app.MapControllerRoute(
 );
 app.MapControllerRoute(
     name: "user",
-    pattern: "user/{uid?}",
-    defaults: new { controller = "Detail", action = "UserDetail" }
-);
-app.MapControllerRoute(
-    name: "user",
     pattern: "user",
     defaults: new { controller = "Detail", action = "UserDetail" }
 );

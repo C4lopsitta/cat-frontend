@@ -1,4 +1,4 @@
-﻿using cat_frontend.CatAPILib.Models;
+﻿using CatAPILib.Models;
 using CatAPILib;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,9 +27,10 @@ namespace cat_frontend.Controllers
             if (ret != null)
             {
                 string token = ret["token"];
-                Console.WriteLine(token);
+                string uid = ret["uid"];
                 HttpContext.Session.SetString("token", token);
-                ViewData["token"] = HttpContext.Session.GetString("token");
+                HttpContext.Session.SetString("uid", uid);
+
                 return RedirectToRoute("home");
             }
             else return Login();

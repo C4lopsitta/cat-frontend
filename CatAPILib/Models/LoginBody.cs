@@ -1,4 +1,4 @@
-﻿namespace cat_frontend.CatAPILib.Models
+﻿namespace CatAPILib.Models
 {
     public class LoginBody
     {

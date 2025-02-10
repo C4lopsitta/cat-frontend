@@ -4,7 +4,7 @@
 @model CatAPILib.Models.User
 @{
     Layout = null;
-    CatAPILib.Models.User user = new CatAPILib.Models.User() as CatAPILib.Models.User;
+    CatAPILib.Models.User? user = ViewData["user"] as CatAPILib.Models.User;
     string? imgPath = null;
     if (user != null)
     {
@@ -13,6 +13,7 @@
 
         if (user.pronouns == null) user.pronouns = "Not set";
         if (user.description == null) user.description = "...";
+        if (user.email == null) user.email = "torxdani1+pappagallo@gmail.com";
     }
     else
     {

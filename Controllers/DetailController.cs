@@ -5,9 +5,21 @@ namespace cat_frontend.Controllers
 {
     public class DetailController : Controller
     {
-        public IActionResult UserDetail(string uid)
+        public IActionResult UserDetail()
         {
-            //ViewData["user"] = CatAPILib.UserEndpoints.GetUserById(uid).Result;
+            string? uid = HttpContext.Session.GetString("uid");
+            string? token = HttpContext.Session.GetString("token");
+
+            if(uid != null && token != null)
+            {
+                CatAPILib.Models.User? user = UserUIDEndpoints.GetUserById(uid, token).Result;
+                ViewData["user"] = user;
+            }
+            else
+            {
+                return RedirectToRoute("login");
+            }
+            
             return View();
         }
         public IActionResult CatDetail(string uid)
