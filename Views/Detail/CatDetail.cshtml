@@ -1,0 +1,145 @@
+﻿@using CatAPILib.Models
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model CatAPILib.Models.Cat
+@{
+    Layout = null;
+    Cat? cat = ViewData["cat"] as Cat;
+    string? imgPath = null;
+    float? priceDec = null;
+    if(cat != null){
+        if (cat.image != null)
+        {
+            imgPath = cat.image;
+        }
+        else
+        {
+            imgPath = "https://i.pinimg.com/originals/db/1a/a8/db1aa8d0d6bc34df01a288ed01c6082d.png";
+        }
+        priceDec = cat.price != null ? cat.price / 100: null;
+    }
+
+}
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="~/css/dettaglioKawaii.css" type="text/css">
+    <link rel="stylesheet" href="~/css/sidebar.css" type="text/css">
+    <link rel="stylesheet" href="~/css/fonts.css" type="text/css">
+
+
+    <title>Kittens - Detail</title>
+</head>
+<body>
+    <div id="outer-grid">
+        <!-- Sidebar -->
+        <div id="outer-side">
+            <div id="sidebar-top">
+                <p class="sidebar-title">(Kittens!)</p>
+            </div>
+            <div id="sidebar-mid">
+                <ul>
+                    <li><a asp-route="home">~  Home  ~</a></li>
+                    <li><a asp-route="cart">~  Cart  ~</a></li>
+                    <li><a asp-route="user">~  Profile ~</a></li>
+                </ul>
+            </div>
+            <div id="sidebar-bot">
+                <p>Powered by cuteness</p>
+            </div>
+        </div>
+
+        <!-- Main Page -->
+        <div id="main">
+
+            <div id="info-big-box">
+                <div class="box-title-bar">
+                    <div class="box-title-text">Kitty!</div>
+                    <div class="box-title-deco"></div>
+                </div>
+
+                <!-- Window Contents -->
+                <div id="info-box-wrapper">
+
+                    <div id="avatar-side">
+                        <!--<img
+                            id="avatar"
+                            src="https://wallpapers-clan.com/wp-content/uploads/2022/07/kuromi-pfp-3.jpg"
+                            alt="Kuromi!"
+                        >-->
+                        <div id="info-flex">
+                            <div class="info-rows" id="main-info">
+                                <p class="info-title">Name</p>
+                                <p class="info-text">@cat.name</p>
+
+                                <p class="info-title">Age</p>
+                                <p class="info-text">@cat.age</p>
+
+                                <p class="info-title">Fur</p>
+                                <p class="info-text">@cat.furColor</p>
+
+                                <p class="info-title">Stray</p>
+                                <p class="info-text">@cat.isStray</p>
+
+                                <p class="info-title">Weight (g)</p>
+                                <p class="info-text">@cat.weight</p>
+
+                                <p class="info-title">Type</p>
+                                <p class="info-text">@cat.race</p>
+
+                                <p class="info-title">Last Seen</p>
+                                <p class="info-text">@cat.whenLastSeen</p>
+
+                                <p class="info-title">Where</p>
+                                <p class="info-text">@cat.whereLastSeen</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="payment-big-box">
+                <div class="box-title-bar">
+                    <div class="box-title-text">Adopt me!</div>
+                    <div class="box-title-deco"></div>
+                </div>
+
+                <!-- Window Contents -->
+                <div id="payment-box-wrapper">
+                    <div class="info-rows">
+                        <p class="info-title">Price</p>
+                        <p class="info-text">@(priceDec!=null?priceDec:"N/A")</p>
+                        <a id="payment-btn" asp-route="cart">Add to Cart</a>
+
+                    </div>
+                    <!--<p id="price">Price: a potato</p>-->
+                </div>
+            </div>
+
+
+            <div id="polaroid">
+
+                    <img id="avatar"
+                         src="@(imgPath!=null?imgPath:"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia1.tenor.com%2Fm%2FKs7nNsmmfcUAAAAC%2Fdungeon-meshi-izutsumi.gif&f=1&nofb=1&ipt=de295d12ecaccb94ef4236f3d9825117bd7d675d1e1a6c208c73826e1c19e2eb&ipo=images")"
+                         alt="Izutsumi!">
+
+            </div>
+
+            <div id="note">
+                <div id="dashed-line"></div>
+
+                <div id="descr">
+                    <div id="descr-title">
+                        What am I like?
+                    </div>
+                    <div id="descr-body">
+                        @cat.description
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</body>

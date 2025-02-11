@@ -1,0 +1,81 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="~/css/loginKawaiiDecent.css" type="text/css">
+    <link rel="stylesheet" href="~/css/fonts.css" type="text/css">
+    <link rel="stylesheet" href="~/css/sidebar.css" type="text/css">
+    <script src="~/js/animate.js"></script>
+
+
+    <title>Kittens - Login</title>
+</head>
+<body>
+    <div id="outer-grid">
+        <!-- Sidebar -->
+        <div id="outer-side">
+            <div id="sidebar-top">
+                <p class="sidebar-title">(Kittens!)</p>
+            </div>
+            <div id="sidebar-mid">
+                <ul>
+                    <li><a asp-route="home">~  Home  ~</a></li>
+                    <li><a asp-route="cart">~  Cart  ~</a></li>
+                    <li><a asp-route="user">~  Profile ~</a></li>
+                </ul>
+            </div>
+            <div id="sidebar-bot">
+                <p>Powered by cuteness</p>
+            </div>
+        </div>
+
+        <!-- Main Page -->
+        <div id="main">
+
+            <!--Login Box-->
+            <div id="login-box">
+                <div class="box-title-bar">
+                    <div class="box-title-text">Sign-in</div>
+                    <div class="box-title-deco"></div>
+                </div>
+                <div id="box-content-wrapper">
+                    <div class="logo">
+                        <p class="sidebar-title">(Kittens!)</p>
+                    </div>
+                    <form id="login" asp-controller="Login" asp-action="SendData" method="post">
+                        <input type="text" name="loginEmail" placeholder="Email" class="field">
+                        <input type="password" name="loginPw" placeholder="Password" class="field">
+                        <input type="submit" name="confirm" value="Confirm" class="btn">
+                    </form>
+                    <div id="register-redirect">First time around here?&nbsp<a onclick="moveStuffAround(1)" href="#">Register!</a></div>
+                </div>
+            </div>
+
+            <!--Register Box-->
+            <div id="register-box">
+                <div class="box-title-bar">
+                    <div class="box-title-text">Sign-up</div>
+                    <div class="box-title-deco"></div>
+                </div>
+                <div id="box-content-wrapper">
+                    <div class="logo">
+                        <p class="sidebar-title">(Kittens!)</p>
+                    </div>
+                    <form id="register" asp-controller="Login" asp-action="Register" method="post">
+                        <input type="text" name="registerUsername" placeholder="Username" class="field">
+                        <input type="text" name="registerPronouns" placeholder="Pronouns" class="field">
+                        <input type="text" name="registerEmail" placeholder="E-mail" class="field">
+                        <input type="password" name="registerPw" placeholder="Password" class="field">
+                        <input type="submit" name="confirm" value="Confirm" class="btn">
+                    </form>
+                    <div id="login-redirect">Already have an account?&nbsp<a onclick="moveStuffAround(0)" href="#">Login!</a></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

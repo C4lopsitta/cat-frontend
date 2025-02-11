@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="paymentKawaii.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <script src="animate.js"></script>
+
+
+    <title>Kittens - Login</title>
+</head>
+<body>
+    <div id="outer-grid">
+        <!-- Sidebar -->
+        <div id="outer-side">
+            <div id="sidebar-top">
+                <p class="sidebar-title">(Kittens!)</p>
+            </div>
+            <div id="sidebar-mid">
+                <ul>
+                    <li><a href="indexKawaii.html">~  Home  ~</a></li>
+                    <li><a href="cartKawaii.html">~  Cart  ~</a></li>
+                    <li><a asp-route="user">~  Profile ~</a></li>
+                </ul>
+            </div>
+            <div id="sidebar-bot">
+                <p>Powered by cuteness</p>
+            </div>
+        </div>
+        
+        <!-- Main Page -->
+        <div id="main">
+
+        <!--Payment Box-->
+            <div id="payment-box">
+                <div class="box-title-bar">
+                    <div class="box-title-text">Payment</div>
+                    <div class="box-title-deco"></div>
+                </div>
+                <div id="box-content-wrapper">
+                    <div class="logo">
+                        <p class="sidebar-title">(Kittens!)</p>
+                    </div>
+                    <div id="payment">
+                        <input type="text" name="payment-cardholder" placeholder="Full name" class="field">
+                        <div id="payment-cvv-row">
+                            <input type="text" name="payment-card-number" placeholder="Card number" class="field">
+                            <input type="text" name="payment-cvv" placeholder="CVV" class="field">
+                        </div>
+                        <input type="password" name="expiration" placeholder="Expiration" class="field">
+                        <div class="payment-bottom-row">
+                            <input type="submit" name="confirm" value="Confirm" class="btn">
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

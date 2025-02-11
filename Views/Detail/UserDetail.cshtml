@@ -1,0 +1,123 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model CatAPILib.Models.User
+@{
+    Layout = null;
+    CatAPILib.Models.User? user = ViewData["user"] as CatAPILib.Models.User;
+    string? imgPath = null;
+    if (user != null)
+    {
+        if (user.image != null) { imgPath = user.image; }
+        else { imgPath = "https://i.pinimg.com/originals/db/1a/a8/db1aa8d0d6bc34df01a288ed01c6082d.png"; }
+
+        if (user.pronouns == null) user.pronouns = "Not set";
+        if (user.description == null) user.description = "...";
+        if (user.email == null) user.email = "torxdani1+pappagallo@gmail.com";
+    }
+    else
+    {
+        user = new CatAPILib.Models.User(
+            "uid",
+            "John Doe",
+            null,
+            null,
+            "One-eyed, one-horned, purple people eater",
+            "they/them",
+            null,
+            null
+        );    
+    }
+}
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="~/css/dettaglioKawaii.css" type="text/css">
+    <link rel="stylesheet" href="~/css/sidebar.css" type="text/css">
+    <link rel="stylesheet" href="~/css/fonts.css" type="text/css">
+
+
+    <title>Kittens - User</title>
+</head>
+<body>
+    <div id="outer-grid">
+        <!-- Sidebar -->
+        <div id="outer-side">
+            <div id="sidebar-top">
+                <p class="sidebar-title">(Kittens!)</p>
+            </div>
+            <div id="sidebar-mid">
+                <ul>
+                    <li><a asp-route="home">~  Home  ~</a></li>
+                    <li><a asp-route="cart">~  Cart  ~</a></li>
+                    <li><a asp-route="user">~  Profile ~</a></li>
+                </ul>
+            </div>
+            <div id="sidebar-bot">
+                <p>Powered by cuteness</p>
+            </div>
+        </div>
+
+        <!-- Main Page -->
+        <div id="main">
+
+            <div id="info-big-box-user">
+                <div class="box-title-bar">
+                    <div class="box-title-text">You!</div>
+                    <div class="box-title-deco"></div>
+                </div>
+
+                <!-- Window Contents -->
+                <div id="info-box-wrapper">
+
+                    <div id="avatar-side">
+                        <!--<img
+                            id="avatar"
+                            src="https://wallpapers-clan.com/wp-content/uploads/2022/07/kuromi-pfp-3.jpg"
+                            alt="Kuromi!"
+                        >-->
+                        <div id="info-flex">
+                            <div class="info-rows" id="main-info">
+                                <p class="info-title">Name</p>
+                                <p class="info-text">@user.username</p>
+
+                                <p class="info-title">Pronouns</p>
+                                <p class="info-text">@user.pronouns</p>
+
+                                <p class="info-title">Email</p>
+                                <p class="info-text">@user.email</p>
+
+                                <a id="payment-btn" asp-route="logout">Logout</a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div id="polaroid">
+                <div id="img-wrapper">
+                    <img id="avatar"
+                         src="@(imgPath!=null?imgPath:"https://i.pinimg.com/736x/82/f0/af/82f0afb53ad74ca96eed774a9514697e.jpg")"
+                         alt="User image">
+                </div>
+            </div>
+
+            <div id="note">
+                <div id="dashed-line"></div>
+
+                <div id="descr">
+                    <div id="descr-title">
+                        About myself...
+                    </div>
+                    <div id="descr-body">
+                        @user.description
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</body>

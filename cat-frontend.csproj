@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -8,10 +8,65 @@
     <UserSecretsId>dc68e547-33a9-4048-a18a-fd08db9a966b</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>.</DockerfileContext>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute> 
   </PropertyGroup>
 
+
   <ItemGroup>
+    <None Include="wwwroot\css\cartKawaii.css" />
+    <None Include="wwwroot\css\dettaglioKawaii.css" />
+    <None Include="wwwroot\css\fonts.css" />
+    <None Include="wwwroot\css\IndexKawaii.css" />
+    <None Include="wwwroot\css\loginKawaiiDecent.css" />
+    <None Include="wwwroot\css\paymentKawaii.css" />
+    <None Include="wwwroot\css\sidebar.css" />
+    <None Include="wwwroot\fonts\Dinomiko Font by 7NTypes.woff" />
+    <None Include="wwwroot\fonts\HoneyCute.otf" />
+    <None Include="wwwroot\fonts\KittenBoldTrial.woff" />
+    <None Include="wwwroot\fonts\KittenFatTrial.woff" />
+    <None Include="wwwroot\fonts\KittenSlantTrial.woff" />
+    <None Include="wwwroot\fonts\KittenSwashMonolineTrial.woff" />
+    <None Include="wwwroot\fonts\KittenSwashTrial.woff" />
+    <None Include="wwwroot\fonts\PrettyNeat\PrettyNeat-Bold.css" />
+    <None Include="wwwroot\fonts\PrettyNeat\PrettyNeat-Bold.html" />
+    <None Include="wwwroot\fonts\PrettyNeat\PrettyNeat-Bold.otf" />
+    <None Include="wwwroot\fonts\PrettyNeat\PrettyNeat-Bold.woff2" />
+    <None Include="wwwroot\fonts\PrettyNeat\PrettyNeat-BoldItalic.css" />
+    <None Include="wwwroot\fonts\PrettyNeat\PrettyNeat-BoldItalic.html" />
+    <None Include="wwwroot\fonts\PrettyNeat\PrettyNeat-BoldItalic.otf" />
+    <None Include="wwwroot\fonts\PrettyNeat\PrettyNeat-BoldItalic.woff2" />
+    <None Include="wwwroot\fonts\PrettyNeat\PrettyNeat-Italic.css" />
+    <None Include="wwwroot\fonts\PrettyNeat\PrettyNeat-Italic.html" />
+    <None Include="wwwroot\fonts\PrettyNeat\PrettyNeat-Italic.otf" />
+    <None Include="wwwroot\fonts\PrettyNeat\PrettyNeat-Italic.woff2" />
+    <None Include="wwwroot\fonts\PrettyNeat\PrettyNeat-Regular.css" />
+    <None Include="wwwroot\fonts\PrettyNeat\PrettyNeat-Regular.html" />
+    <None Include="wwwroot\fonts\PrettyNeat\PrettyNeat-Regular.otf" />
+    <None Include="wwwroot\fonts\PrettyNeat\PrettyNeat-Regular.woff2" />
+    <None Include="wwwroot\fonts\PrettyNeat\prettyneatpreview-new.jpg" />
+    <None Include="wwwroot\fonts\PrettyNeat\Readme.pdf" />
+    <None Include="wwwroot\fonts\PrettyNeat\SIL Open Font License.txt" />
+    <None Include="wwwroot\js\animate.js" />
+    <None Include="wwwroot\png\786.jpg" />
+    <None Include="wwwroot\png\avatar-bg1.png" />
+    <None Include="wwwroot\png\avatar-bg2.png" />
+    <None Include="wwwroot\png\cartThingyMaybe.png" />
+    <None Include="wwwroot\png\list-bg1.png" />
+    <None Include="wwwroot\png\login-img-tmp.png" />
+    <None Include="wwwroot\png\main-bg1.png" />
+    <None Include="wwwroot\png\main-bg2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.3.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\TMP_KawaiiUI\PngAssets\" />
   </ItemGroup>
 
 </Project>
